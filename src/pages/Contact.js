@@ -4,12 +4,32 @@ import Logo from "../components/Logo";
 import Mouse from "../components/Mouse";
 import Navigation from "../components/Navigation";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import SocialNetwork from "../components/SocialNetwork";
+import Button from "../components/Button";
+import { motion } from "framer-motion";
 
 const Contact = () => {
+  const pageTransition = {
+    in: {
+      opacity: 1,
+      x: 0,
+    },
+    out: {
+      opacity: 0,
+      x: 200,
+    },
+  };
   return (
     <main>
       <Mouse />
-      <div className="contact">
+      <motion.div
+        className="contact"
+        exit="out"
+        animate="in"
+        variants={pageTransition}
+        transition={{ duration: 0.5 }}
+        initial="out"
+      >
         <Navigation />
         <Logo />
         <ContactForm />
@@ -38,8 +58,8 @@ const Contact = () => {
 
           <div className="email">
             <div className="content">
-                <h4>email</h4>
-                <CopyToClipboard text="louismn31190@gmail.com" className="hover">
+              <h4>email</h4>
+              <CopyToClipboard text="louismn31190@gmail.com" className="hover">
                 <p
                   style={{ cursor: "pointer" }}
                   className="clipboard"
@@ -50,8 +70,13 @@ const Contact = () => {
               </CopyToClipboard>
             </div>
           </div>
+          <SocialNetwork />
+          <div className="credits">
+            <p>LM AGENCY - 2022</p>
+          </div>
         </div>
-      </div>
+        <Button left={"/projet-4"} />
+      </motion.div>
     </main>
   );
 };
