@@ -9,7 +9,7 @@ const SocialNetwork = () => {
             link.addEventListener("mouseover", (e) => {
                 link.style.transform = `translate(${e.offsetX - 20}px, ${e.offsetY - 13}px)`
             })
-            link.addEventListener("mouseleave", (e) => {
+            link.addEventListener("mouseleave", () => {
                 link.style.transform = ""
             })
         })
